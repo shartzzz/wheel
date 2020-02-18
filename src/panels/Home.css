@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
+
+body {
+  font-family: Montserrat, sans-serif;
+  font-size: 10vmin;
+  margin: 0;
+}
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  background: #fff421;
+  width: 100vw;
+  height: 100vh;
+  transition: background 300ms ease-out;
+}
+#roulette {
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+  flex-grow: 0;
+  overflow: hidden;
+}
+#roulette_wheel {
+  width: 100vmin;
+  height: 100vmin;
+  position: relative;
+  margin: 0 auto;
+  transition: all 600ms ease-out;
+}
+#roulette_wheel.highlight {
+  background: white;
+  transition: all 0ms linear;
+  transform: scale(1.1,1.1);
+  filter: brightness(150%);
+}
+#roulette_image {
+  background-color: white;
+  background-image: url("../img/round.png");
+  background-size: 98% 98%;
+  background-position: center;
+  background-repeat: none;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: 3vmin;
+  top: 3vmin;
+  width: 94vmin;
+  height: 94vmin;
+}
+#pointer {
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  right: -5%;
+  top: -5%;
+}
+#pointer_content {
+  width: 100%;
+  height: 100%;
+  transform: rotate(0deg);
+  transition: transform 50ms linear;
+}
+#pointer_content.nudged_right {
+  transform: rotate(10deg);
+  transition: transform 0ms;
+}
+#pointer_content.nudged_left {
+  transform: rotate(-10deg);
+  transition: transform 0ms;
+}
+#controls {
+  width: 100vw;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+button {
+  display: block;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-size: inherit;
+  background: black;
+  border: none;
+  color: #fff421;
+  transition: color 300ms ease-out;
+}
+button:active {
+  color: white;
+}
+button:disabled {
+  opacity: 0.3;
+}
+#category {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 75%;
+}
+.active {
+  display: none;
+}
+
+@media (min-aspect-ratio: 3/2) {
+  #wrapper {
+    flex-direction: row;
+  }
+  #roulette {
+    width: 100vh;
+    height: 100vh;
+  }
+}
